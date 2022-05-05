@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function NoteList() {
+export default function NotesList() {
   return (
     <>
       <section></section>
