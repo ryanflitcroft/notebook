@@ -7,7 +7,6 @@ export default function Login() {
   const { newUser, setNewUser, authorizeUser } = useUserContext();
   const location = useLocation();
   const history = useHistory();
-  console.log('location', location);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -30,42 +29,40 @@ export default function Login() {
 
   return (
     <>
-      <main>
-        <form className={styles.authForm} onSubmit={handleSubmit}>
-          <div>
-            <span
-              onClick={() => setNewUser(false)}
-              className={!newUser ? styles.active : undefined}
-            >
-              Sign In
-            </span>
-            <span
-              onClick={() => setNewUser(true)}
-              className={newUser ? styles.active : undefined}
-            >
-              Sign Up
-            </span>
-          </div>
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            minLength="6"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <button>{!newUser ? 'Sign in' : 'Sign up'}</button>
-        </form>
-      </main>
+      <form className={styles.authForm} onSubmit={handleSubmit}>
+        <div>
+          <span
+            onClick={() => setNewUser(false)}
+            className={!newUser ? styles.active : undefined}
+          >
+            Sign In
+          </span>
+          <span
+            onClick={() => setNewUser(true)}
+            className={newUser ? styles.active : undefined}
+          >
+            Sign Up
+          </span>
+        </div>
+        <label htmlFor="email">Email</label>
+        <input
+          type="email"
+          name="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <label htmlFor="password">Password</label>
+        <input
+          type="password"
+          name="password"
+          minLength="6"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <button>{!newUser ? 'Sign in' : 'Sign up'}</button>
+      </form>
     </>
   );
 }

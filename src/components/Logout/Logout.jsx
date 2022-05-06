@@ -1,12 +1,13 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { useUserContext } from '../../hooks/useUserContext';
 
 export default function Logout() {
-  const { signOutUser } = useUserContext();
+  const { signOutUser, setUser } = useUserContext();
 
   const handleSignOut = async () => {
     await signOutUser();
-    history.replace('/');
+    setUser({ email: null });
   };
 
   return (
