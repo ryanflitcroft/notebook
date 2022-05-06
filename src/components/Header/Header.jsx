@@ -8,8 +8,10 @@ export default function Header() {
     <>
       <header>
         {user.email && <Logout />}
+
         <h1>NoteBook</h1>
-        <p>Signed in as: {user.email}</p>
+
+        {user.email && <p>Signed in as: {user.email}</p>}
       </header>
     </>
   );
