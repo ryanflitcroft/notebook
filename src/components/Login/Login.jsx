@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import styles from './Login.css';
 import { useUserContext } from '../../hooks/useUserContext';
 
 export default function Login() {
-  const { newUser, setNewUser, authorizeUser } = useUserContext();
+  const { user, newUser, setNewUser, authorizeUser } = useUserContext();
   const location = useLocation();
   const history = useHistory();
 
@@ -13,6 +13,10 @@ export default function Login() {
   const [error, setError] = useState('');
 
   const { from } = location.state || { from: { pathname: '/' } };
+
+  useEffect(() => {
+    user.email && history.replace('/');
+  });
 
   const handleSubmit = async (e) => {
     try {
