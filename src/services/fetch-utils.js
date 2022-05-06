@@ -21,3 +21,9 @@ export async function signIn(email, password) {
 export async function signOut() {
   await client.auth.signOut();
 }
+
+export async function createNote(note) {
+  const response = await client.from('notes').insert(note);
+
+  return checkError(response);
+}
