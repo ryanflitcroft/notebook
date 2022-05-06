@@ -1,12 +1,12 @@
 import { createContext, useContext, useState } from 'react';
 import { getUser, signIn, signUp } from '../services/fetch-utils';
 
-const userContext = createContext();
+export const userContext = createContext();
 
 export default function UserProvider({ children }) {
   const currentUser = getUser();
-  const [newUser, setNewUser] = useState(false);
   const [user, setUser] = useState(currentUser || { email: null });
+  const [newUser, setNewUser] = useState(false);
 
   const authorizeUser = async (email, password) => {
     if (!newUser) {
@@ -18,18 +18,26 @@ export default function UserProvider({ children }) {
     }
   };
 
+  const userContextState = {
+    user,
+    setUser,
+    newUser,
+    setNewUser,
+    authorizeUser,
+  };
+
   return (
-    <userContext.Provider value={{ newUser, setNewUser, user, authorizeUser }}>
+    <userContext.Provider value={userContextState}>
       {children}
     </userContext.Provider>
   );
 }
 
-export const useUserContext = () => {
-  const context = useContext(userContext);
-  if (context === undefined) {
-    throw new Error('useUser must be user within UserProvider');
-  }
+// export const useUserContext = () => {
+//   const context = useContext(userContext);
+//   if (context === undefined) {
+//     throw new Error('useUser must be user within UserProvider');
+//   }
 
-  return context;
-};
+//   return context;
+// };

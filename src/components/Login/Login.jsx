@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import styles from './Login.css';
-import { useUserContext } from '../../context/UserProvider';
+import { useUserContext } from '../../hooks/useUserContext';
 
 export default function Login() {
   const { newUser, setNewUser, authorizeUser } = useUserContext();
@@ -11,7 +11,7 @@ export default function Login() {
   const [error, setError] = useState('');
   const location = useLocation();
   const history = useHistory();
-
+  console.log('location', location);
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
@@ -24,17 +24,6 @@ export default function Login() {
     } catch (error) {
       setError(error.message);
     }
-    // {
-    //   if (!newUser) {
-    //     const user = await signInUser(email, password);
-    //     setUser(user);
-    //   } else {
-    //     const user = await signUpUser(email, password);
-    //     setUser(user);
-    //   }
-    // setEmail('');
-    // setPassword('');
-    // }
   };
 
   return (
