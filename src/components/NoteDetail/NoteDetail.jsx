@@ -3,7 +3,7 @@ import React from 'react';
 export default function NoteDetail() {
   return (
     <>
-      <section></section>
+      <section>DETAIL page here... protected</section>
     </>
   );
 }

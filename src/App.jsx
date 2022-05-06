@@ -1,5 +1,5 @@
 import { Route, Switch } from 'react-router-dom';
-import Main from './components/Main/Main';
+import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import NotesList from './components/NoteList/NotesList';
@@ -11,16 +11,16 @@ export default function App() {
     <>
       <Switch>
         <Route exact path="/">
-          <Main />
+          <Home />
         </Route>
         <Route path="/login">
           <Login />
         </Route>
-        <PrivateRoute>
-          <NotesList path="/notes" />
+        <PrivateRoute path="/notes">
+          <NotesList />
         </PrivateRoute>
-        <PrivateRoute>
-          <NoteDetail path="/notes/:id" />
+        <PrivateRoute path="/notes/:id">
+          <NoteDetail />
         </PrivateRoute>
       </Switch>
     </>

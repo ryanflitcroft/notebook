@@ -3,16 +3,15 @@ import { Route, Redirect } from 'react-router-dom';
 import { useUserContext } from '../../hooks/useUserContext';
 
 export default function PrivateRoute({ children, ...rest }) {
-  const auth = useUserContext();
-  console.log('auth', auth);
-  console.log('rest', { ...rest });
-  console.log('location', { location });
+  const { user } = useUserContext();
+  console.log('user', user);
+
   return (
     <>
       <Route
         {...rest}
         render={({ location }) =>
-          auth.user.email ? (
+          user.email ? (
             children
           ) : (
             <Redirect to={{ pathname: '/login', state: { from: location } }} />
