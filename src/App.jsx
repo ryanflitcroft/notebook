@@ -9,20 +9,22 @@ import './App.css';
 export default function App() {
   return (
     <>
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/login">
-          <Login />
-        </Route>
-        <PrivateRoute path="/notes">
-          <NotesList />
-        </PrivateRoute>
-        <PrivateRoute path="/notes/:id">
-          <NoteDetail />
-        </PrivateRoute>
-      </Switch>
+      <main>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <PrivateRoute path="/notes">
+            <NotesList />
+          </PrivateRoute>
+          <PrivateRoute path="/notes/:id">
+            <NoteDetail />
+          </PrivateRoute>
+        </Switch>
+      </main>
     </>
   );
 }

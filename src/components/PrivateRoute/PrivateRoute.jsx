@@ -4,7 +4,6 @@ import { useUserContext } from '../../hooks/useUserContext';
 
 export default function PrivateRoute({ children, ...rest }) {
   const { user } = useUserContext();
-  console.log('user', user);
 
   return (
     <>
