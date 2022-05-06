@@ -20,7 +20,7 @@ export default function App() {
           <NotesList path="/notes" />
         </PrivateRoute>
         <PrivateRoute>
-          <NoteDetail path="/notes/id" />
+          <NoteDetail path="/notes/:id" />
         </PrivateRoute>
       </Switch>
     </>

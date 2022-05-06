@@ -5,13 +5,16 @@ import { useUserContext } from '../../hooks/useUserContext';
 
 export default function Login() {
   const { newUser, setNewUser, authorizeUser } = useUserContext();
+  const location = useLocation();
+  const history = useHistory();
+  console.log('location', location);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const location = useLocation();
-  const history = useHistory();
-  console.log('location', location);
+
+  const { from } = location.state || { from: { pathname: '/' } };
+
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
@@ -19,8 +22,7 @@ export default function Login() {
       setEmail('');
       setPassword('');
 
-      // const url = location.state.origin ? location.state.origin.pathName : '/';
-      // history.replace(url);
+      history.replace(from.pathname);
     } catch (error) {
       setError(error.message);
     }

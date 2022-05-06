@@ -11,6 +11,7 @@ export default function UserProvider({ children }) {
   const authorizeUser = async (email, password) => {
     if (!newUser) {
       const authenticatedUser = await signIn(email, password);
+      console.log('authuser', authenticatedUser);
       setUser(authenticatedUser);
     } else {
       const authenticatedUser = await signUp(email, password);
@@ -32,12 +33,3 @@ export default function UserProvider({ children }) {
     </userContext.Provider>
   );
 }
-
-// export const useUserContext = () => {
-//   const context = useContext(userContext);
-//   if (context === undefined) {
-//     throw new Error('useUser must be user within UserProvider');
-//   }
-
-//   return context;
-// };
