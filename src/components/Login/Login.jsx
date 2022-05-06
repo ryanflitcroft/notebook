@@ -1,26 +1,41 @@
 import React, { useState } from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
 import styles from './Login.css';
+import { useUserContext } from '../../context/UserProvider';
 
 export default function Login() {
-  const [user, setUser] = useState(localStorage.getItem('supabase.auth.token'));
+  const { newUser, setNewUser, authorizeUser } = useUserContext();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [newUser, setNewUser] = useState(false);
+  const [error, setError] = useState('');
+  const location = useLocation();
+  const history = useHistory();
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-    {
-      if (!newUser) {
-        const user = await signInUser(email, password);
-        setUser(user);
-      } else {
-        const user = await signUpUser(email, password);
-        setUser(user);
-      }
+  const handleSubmit = async (e) => {
+    try {
+      e.preventDefault();
+      await authorizeUser(email, password);
       setEmail('');
       setPassword('');
+
+      // const url = location.state.origin ? location.state.origin.pathName : '/';
+      // history.replace(url);
+    } catch (error) {
+      setError(error.message);
     }
-  }
+    // {
+    //   if (!newUser) {
+    //     const user = await signInUser(email, password);
+    //     setUser(user);
+    //   } else {
+    //     const user = await signUpUser(email, password);
+    //     setUser(user);
+    //   }
+    // setEmail('');
+    // setPassword('');
+    // }
+  };
 
   return (
     <>
@@ -29,20 +44,20 @@ export default function Login() {
           <div>
             <span
               onClick={() => setNewUser(false)}
-              className={!newUser && styles.active}
+              className={!newUser ? styles.active : undefined}
             >
               Sign In
             </span>
             <span
               onClick={() => setNewUser(true)}
-              className={newUser && styles.active}
+              className={newUser ? styles.active : undefined}
             >
               Sign Up
             </span>
           </div>
           <label htmlFor="email">Email</label>
           <input
-            type="text"
+            type="email"
             name="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -50,7 +65,7 @@ export default function Login() {
           />
           <label htmlFor="password">Password</label>
           <input
-            type="text"
+            type="password"
             name="password"
             minLength="6"
             value={password}
