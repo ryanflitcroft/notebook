@@ -18,3 +18,9 @@ main {
   align-items: center;
 }
 
+main div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+

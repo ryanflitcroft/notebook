@@ -17,28 +17,30 @@ export default function CreateNote() {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <span>Create a Note</span>
-        </div>
-        <label htmlFor="heading">Note heading:</label>
-        <input
-          type="text"
-          name="heading"
-          value={heading}
-          onChange={(e) => setHeading(e.target.value)}
-          required
-        />
-        <label htmlFor="content">Your note:</label>
-        <input
-          type="text"
-          name="content"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          required
-        />
-        <button>Submit</button>
-      </form>
+      <section>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <span>Create a Note</span>
+          </div>
+          <label htmlFor="heading">Note heading:</label>
+          <input
+            type="text"
+            name="heading"
+            value={heading}
+            onChange={(e) => setHeading(e.target.value)}
+            required
+          />
+          <label htmlFor="content">Your note:</label>
+          <input
+            type="text"
+            name="content"
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+            required
+          />
+          <button>Submit</button>
+        </form>
+      </section>
     </>
   );
 }

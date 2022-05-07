@@ -9,12 +9,12 @@ export default function Main() {
     <>
       <main>
         <Switch>
-          <PrivateRoute exact path="/">
-            <Home />
-          </PrivateRoute>
           <Route path="/login">
             <Login />
           </Route>
+          <PrivateRoute path="/">
+            <Home />
+          </PrivateRoute>
         </Switch>
       </main>
     </>
