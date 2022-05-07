@@ -1,11 +1,27 @@
 import React, { useState, useEffect } from 'react';
+import { useUserContext } from '../../hooks/useUserContext';
+import { getNotes } from '../../services/fetch-utils';
+import NoteCard from '../NoteCard/NoteCard';
 
 export default function NotesList() {
-  const [notes, setNotes] = useState([]);
+  const { user } = useUserContext();
+  const [notesList, setNotesList] = useState([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      const data = await getNotes(user.id);
+      setNotesList(data);
+    };
+    getData();
+  }, []);
 
   return (
     <>
-      <section>LIST page here... protected</section>
+      <section>
+        {notesList.map((note, i) => (
+          <NoteCard key={`${note.id} - ${i}`} note={note} />
+        ))}
+      </section>
     </>
   );
 }

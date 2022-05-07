@@ -27,3 +27,13 @@ export async function createNote(note) {
 
   return checkError(response);
 }
+
+export async function getNotes(id) {
+  const response = await client
+    .from('notes')
+    .select()
+    .match({ user_id: id })
+    .order('created_at', { ascending: true });
+
+  return checkError(response);
+}
