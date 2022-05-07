@@ -37,13 +37,13 @@ export default function Login() {
         <div>
           <span
             onClick={() => setNewUser(false)}
-            className={!newUser ? styles.active : undefined}
+            className={newUser ? styles.clickable : undefined}
           >
             Sign In
           </span>
           <span
             onClick={() => setNewUser(true)}
-            className={newUser ? styles.active : undefined}
+            className={!newUser ? styles.clickable : undefined}
           >
             Sign Up
           </span>

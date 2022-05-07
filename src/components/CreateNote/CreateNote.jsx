@@ -18,6 +18,9 @@ export default function CreateNote() {
   return (
     <>
       <form onSubmit={handleSubmit}>
+        <div>
+          <span>Create a Note</span>
+        </div>
         <label htmlFor="heading">Note heading:</label>
         <input
           type="text"
