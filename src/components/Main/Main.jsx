@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import Home from '../Home/Home';
 import Login from '../Login/Login';
+import CreateNote from '../CreateNote/CreateNote';
 
 export default function Main() {
   return (
@@ -12,7 +13,10 @@ export default function Main() {
           <Route path="/login">
             <Login />
           </Route>
-          <PrivateRoute path="/">
+          <PrivateRoute path="/create">
+            <CreateNote />
+          </PrivateRoute>
+          <PrivateRoute exact path="/">
             <Home />
           </PrivateRoute>
         </Switch>

@@ -11,16 +11,103 @@ body,
   padding: 0;
 }
 
-main {
-  width: 100%;
+header {
+  position: sticky;
+  top: 0;
+  background: whitesmoke;
+  color: #3d3d3d;
+  padding: 1em;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: center;
+  margin: 0 0 1em;
+}
+
+header p span {
+  display: block;
+  font-weight: bold;
+}
+
+header button {
+  all: unset;
+  cursor: pointer;
+}
+
+main { 
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  }
+
+form {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0.25em 0.25em 0.5em #3d3d3d,
+              -0.05em -0.05em 0.15em #d3d3d3;
+  margin: 3em 0;
 }
 
-main div {
+form div {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  margin: 0 0 0.5em;
+}
+
+form div span {
+  width: 100%;
+  padding: 0.5em;
+  cursor: initial;
+  background: white;
+}
+
+form div span.clickable {
+  background: rgb(231, 231, 231);
+  cursor: pointer;
+}
+
+form label {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  margin: 0.5em;
+  align-self: center;
+}
+
+form input {
+  margin: 0.25em 0;
+  width: 200px;
+  align-self: center;
+}
+
+button {
+  width: 100px;
+  margin: 1.5em;
+  padding: 0.25em;
+  align-self: center;
+  cursor: pointer;
+}
+
+section {
+  width: clamp(300px, 85%, 1000px);
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
+  margin: 1em;
 }
 
+section article {
+  width: 250px;
+  border: solid #d3d3d3 1px;
+  border-radius: 5px;
+  text-align: center;
+  padding: 1em;
+  margin: 1em;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}

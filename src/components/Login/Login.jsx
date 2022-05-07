@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-import styles from './Login.css';
+import styles from '../../App.css';
 import { useUserContext } from '../../hooks/useUserContext';
 
 export default function Login() {

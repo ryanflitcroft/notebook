@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import { useUserContext } from '../../hooks/useUserContext';
 import { createNote } from '../../services/fetch-utils';
 
 export default function CreateNote() {
   const { user } = useUserContext();
+  const history = useHistory();
 
   const [heading, setHeading] = useState('');
   const [content, setContent] = useState('');
@@ -13,10 +15,12 @@ export default function CreateNote() {
     await createNote({ user_id: user.id, heading, content });
     setHeading('');
     setContent('');
+    history.push('/');
   };
 
   return (
     <>
+      <Link to="/">Back to Notes</Link>
       <section>
         <form onSubmit={handleSubmit}>
           <div>

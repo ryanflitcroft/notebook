@@ -7,11 +7,15 @@ export default function Header() {
   return (
     <>
       <header>
-        {user.email && <Logout />}
+        {user.email && (
+          <p>
+            hello <span>{user.email}</span>
+          </p>
+        )}
 
         <h1>NoteBook</h1>
 
-        {user.email && <p>Signed in as: {user.email}</p>}
+        {user.email && <Logout />}
       </header>
     </>
   );
