@@ -33,15 +33,21 @@ export default function Login() {
 
   return (
     <>
-      <form className={styles.authForm} onSubmit={handleSubmit}>
-        <div>
+      <form
+        aria-label="sign in or sign up to continue"
+        className={styles.authForm}
+        onSubmit={handleSubmit}
+      >
+        <div aria-label="container for sign in and sign up toggles">
           <span
+            aria-label="toggle sign in for existing users"
             onClick={() => setNewUser(false)}
             className={newUser ? styles.clickable : undefined}
           >
             Sign In
           </span>
           <span
+            aria-label="toggle sign up for new users"
             onClick={() => setNewUser(true)}
             className={!newUser ? styles.clickable : undefined}
           >

@@ -17,7 +17,7 @@ export default function NotesList() {
 
   return (
     <>
-      <section>
+      <section aria-label="container for list of user notes">
         {notesList.map((note, i) => (
           <NoteCard key={`${note.id} - ${i}`} note={note} />
         ))}
