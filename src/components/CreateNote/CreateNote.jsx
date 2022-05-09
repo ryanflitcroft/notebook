@@ -21,8 +21,8 @@ export default function CreateNote() {
   return (
     <>
       <Link to="/">Back to Notes</Link>
-      <section>
-        <form onSubmit={handleSubmit}>
+      <section aria-label="container for form">
+        <form aria-label="submit form to create a note" onSubmit={handleSubmit}>
           <div>
             <span>Create a Note</span>
           </div>
@@ -30,6 +30,7 @@ export default function CreateNote() {
           <input
             type="text"
             name="heading"
+            placeholder="heading"
             value={heading}
             onChange={(e) => setHeading(e.target.value)}
             required
@@ -38,6 +39,7 @@ export default function CreateNote() {
           <input
             type="text"
             name="content"
+            placeholder="content"
             value={content}
             onChange={(e) => setContent(e.target.value)}
             required

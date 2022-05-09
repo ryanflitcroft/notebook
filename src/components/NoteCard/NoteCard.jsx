@@ -5,8 +5,8 @@ export default function NoteCard({ note }) {
     <>
       <article aria-label="container for user notes">
         <h3>{note.heading}</h3>
-        <p>{note.content}</p>
-        <p>{new Date(note.created_at).toDateString()}</p>
+        <p aria-label="note content">{note.content}</p>
+        <p aria-label="note date">{new Date(note.created_at).toDateString()}</p>
       </article>
     </>
   );

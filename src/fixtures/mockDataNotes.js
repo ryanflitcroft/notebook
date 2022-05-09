@@ -1,4 +1,4 @@
-export const mockNotesData = [
+export const mockDataNotes = [
   {
     id: 2,
     created_at: '2022-05-06T23:52:53.565195+00:00',

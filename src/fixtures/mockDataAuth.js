@@ -1,4 +1,4 @@
-export const mockDataSignIn = {
+export const mockDataAuth = {
   access_token: 'MOCK_ACCESS_TOKEN',
   token_type: 'bearer',
   expires_in: 3600,
@@ -11,7 +11,7 @@ export const mockDataSignIn = {
     email_confirmed_at: '2022-05-06T18:17:22.404341Z',
     phone: '',
     confirmed_at: '2022-05-06T18:17:22.404341Z',
-    last_sign_in_at: '2022-05-09T15:16:03.281080831Z',
+    last_sign_in_at: '2022-05-09T16:49:18.642041282Z',
     app_metadata: {
       provider: 'email',
       providers: ['email'],
@@ -31,6 +31,6 @@ export const mockDataSignIn = {
       },
     ],
     created_at: '2022-05-06T18:17:22.400173Z',
-    updated_at: '2022-05-09T15:16:03.282214Z',
+    updated_at: '2022-05-09T16:49:18.643279Z',
   },
 };

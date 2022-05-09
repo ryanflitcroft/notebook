@@ -12,11 +12,11 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const { from } = location.state || { from: { pathname: '/' } };
+  const { from } = location.search || { from: { pathname: '/' } };
 
   useEffect(() => {
     user.email && history.replace('/');
-  });
+  }, []);
 
   const handleSubmit = async (e) => {
     try {
@@ -58,6 +58,7 @@ export default function Login() {
         <input
           type="email"
           name="email"
+          placeholder="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
@@ -66,6 +67,7 @@ export default function Login() {
         <input
           type="password"
           name="password"
+          placeholder="password"
           minLength="6"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
